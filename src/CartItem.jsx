@@ -14,10 +14,8 @@ const CartItem = ({ onContinueShopping }) => {
     }, 0);
   };
 
-  const handleContinueShopping = (e) => {
-    if (onContinueShopping) {
-      onContinueShopping(); // Call the function passed from the parent
-    };
+  const handleContinueShopping = () => {
+    alert('Continue Shopping button clicked!');
   };
 
 
@@ -43,8 +41,8 @@ const CartItem = ({ onContinueShopping }) => {
     return (item.quantity * item.cost);
   };
 
-  const handleCheckoutShopping = (e) => {
-  alert('Functionality to be added for future reference');
+  const handleCheckoutShopping = () => {
+    alert('Functionality to be added for future reference');
   };
 
   return (
@@ -70,9 +68,9 @@ const CartItem = ({ onContinueShopping }) => {
       </div>
       <div style={{ marginTop: '20px', color: 'black' }} className='total_cart_amount'></div>
       <div className="continue_shopping_btn">
-        <button className="get-started-button" onClick={(e) => handleContinueShopping(e)}>Continue Shopping</button>
+        <button className="get-started-button" onClick={handleContinueShopping}>Continue Shopping</button>
         <br />
-        <button className="get-started-button1">Checkout</button>
+        <button className="get-started-button1" onClick={handleCheckoutShopping}>Checkout</button>
       </div>
     </div>
   );
