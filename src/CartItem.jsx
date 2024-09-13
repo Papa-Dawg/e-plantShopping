@@ -14,11 +14,11 @@ const CartItem = ({ onContinueShopping }) => {
     }, 0);
   };
 
-  const handleContinueShopping = () => {
-    alert('Continue Shopping button clicked!');
+  const handleContinueShopping = (e) => {
+    if (onContinueShopping) {
+      onContinueShopping(e);
+    }
   };
-
-
 
   const handleIncrement = (item) => {
     dispatch(updateQuantity({ name: item.name, quantity: item.quantity + 1 }));
@@ -45,6 +45,10 @@ const CartItem = ({ onContinueShopping }) => {
     alert('Functionality to be added for future reference');
   };
 
+  const getTotalItems = () => {
+    return cart.reduce((total, item) => total + item.quantity, 0);
+  };
+  
   return (
     <div className="cart-container">
       <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
@@ -52,6 +56,9 @@ const CartItem = ({ onContinueShopping }) => {
         {cart.map(item => (
           <div className="cart-item" key={item.name}>
             <img className="cart-item-image" src={item.image} alt={item.name} />
+            {getTotalItems() > 0 && (
+            <span className="cart-icon-counter">{getTotalItems()}</span>
+            )}
             <div className="cart-item-details">
               <div className="cart-item-name">{item.name}</div>
               <div className="cart-item-cost">${item.cost}</div>

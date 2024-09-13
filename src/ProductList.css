@@ -39,6 +39,13 @@ body {
    
 }
 
+/* Center category titles */
+.category-heading {
+    text-align: center; /* Center align the text */
+    width: 100%; /* Make sure the element takes the full width */
+    margin: 20px 0; /* Add some vertical margin for spacing */
+}
+
 /* Product Grid */
 .product-grid {
     display:flex;
